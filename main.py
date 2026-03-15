@@ -21,7 +21,21 @@ print(180)
 print(True)
 
 
+# type()   ->  tregon tipin e te dhenave
 
+print("Mirgjen Gashi", type("Mirgjen Gashi"))
+print(22, type(22))
+print(180, type(180))
+print(True, type(True))
+
+
+# Duke perdorur data types, vendosni adresen tuaj
+
+Shteti="Kosovo"
+Qyteti="Prishtina"
+Shtepi= False
+Banese= True
+nr_objekti= 83
 
 
 
