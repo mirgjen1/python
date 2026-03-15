@@ -42,7 +42,26 @@ else:
     print("Email or password is incorrect.")
 
 
-    
+# Task te krijohet nje forme e cila jep noten ne baze te pikeve
+
+piket= 39
+
+if piket <=100 and piket >= 85:
+    print("Nota 10")
+elif piket <=84 and piket >=70:
+    print("Nota 9")
+elif piket <=69 and piket >=55:
+    print("Nota 8")
+elif piket <=54 and piket >=40:
+    print("Nota 7")
+elif piket <=39 and piket >=20:
+    print("Nota 6")
+elif piket <=19 and piket >=0:
+    print("Nota 5")
+
+
+
+
 
 
 
