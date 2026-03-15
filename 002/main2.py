@@ -42,9 +42,9 @@ else:
     print("Email or password is incorrect.")
 
 
-# Task te krijohet nje forme e cila jep noten ne baze te pikeve
+# Task te krijohet nje form e cila jep noten ne baze te pikeve
 
-piket= 39
+piket= 17
 
 if piket <=100 and piket >= 85:
     print("Nota 10")
@@ -57,7 +57,28 @@ elif piket <=54 and piket >=40:
 elif piket <=39 and piket >=20:
     print("Nota 6")
 elif piket <=19 and piket >=0:
-    print("Nota 5")
+    print("Nuk kalon!")
+
+
+
+# Te krijohet nje script e cila e ben check nese useri eshte mbi 18. nese po lejohet te voton.
+
+age=18
+
+if age <=19 and age >= 18:
+    print("Lejohet te voton")
+elif age <=17 and age >=16:
+    print("Nuk lejohet te voton")
+
+
+# Me shkurt
+
+age = 16
+
+if age >=18:
+    print("Lejohet te voton")
+else:
+    print("Nuk lejohet te voton")
 
 
 
