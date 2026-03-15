@@ -71,13 +71,81 @@ print()
 x=10 
 y=5
 
-print(x,"+",y,"=",x+y)
+# print(x,"+",y,"=",x+y)
+# print("x","-","y","=",x-y)
+# print("x","*","y","=",x*y)
+# print(x,"/",y,"=",x/y)
 
-print("x","-","y","=",x-y)
 
-print("x","*","y","=",x*y)
+a=50
+b=20
 
-print(x,"/",y,"=",x/y)
+rezultati= a + b
+print(rezultati)
+
+# (10 + 5) * 2 ?
+
+rezultati= (a + b) * 2
+print (rezultati)
+
+print()
+print()
+print()
+
+# 1. (12+8) x 3 - 4² (**  -> fuqi)
+
+a = 12
+b = 8
+c = 3
+d = 4
+
+rezultati= (a+b) * c - d ** 2
+print(rezultati)
+
+print()
+print()
+print()
+
+# 2. (15=3)x(4+6)+23
+a=15
+b=3
+c=4
+d=6
+e=23
+
+rezultati=(a-b)*(c+d)+e
+print(rezultati)
+# 3. [(20+10)*2 - 5²]/5
+
+a=20
+b=10
+c=2
+d=5
+
+rezultati=((a+b)*c-d**2)/d
+print(rezultati)
+
+
+#4. ((25-5)x3+10)/(2+3)
+a=25
+b=5
+c=3
+d=10
+e=2
+
+rezultati= ((a-b)*c+d)/(e+c)
+print(rezultati)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
