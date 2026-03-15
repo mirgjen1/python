@@ -29,11 +29,68 @@ print(True, type(True))
 
 # Duke perdorur data types, vendosni adresen tuaj
 
-Shteti="Kosovo"
+# Variables
+
+Shteti="Kosova"
 Qyteti="Prishtina"
 Shtepi= False
 Banese= True
 nr_objekti= 83
+
+print(Shteti)
+print(Qyteti)
+print(Shtepi)
+print(Banese)
+print(nr_objekti)
+
+# Qka eshte nje variabel? 
+# Variabli eshte slot ne memory qe sherben per me rujt vlera [vlere e ndryshueshme (konstante=vlere e pandryshueshme)].
+
+# Allowed to use
+
+FullName= any 
+Fullname= any
+full_name= any
+full_name1= any
+name= any
+
+
+# Not allowed to use
+
+# full name= ...
+# full-name= ...
+# 123= any
+# 1full_name= any
+
+
+print()
+print()
+print()
+
+
+x=10 
+y=5
+
+print(x,"+",y,"=",x+y)
+
+print("x","-","y","=",x-y)
+
+print("x","*","y","=",x*y)
+
+print(x,"/",y,"=",x/y)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
