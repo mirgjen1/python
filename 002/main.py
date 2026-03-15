@@ -1,7 +1,5 @@
 
 
-print ("Hello, World!")
-
 # Tipet e te dhenave ne Python
 
 # Name                 Abbreviation                 Values 
