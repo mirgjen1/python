@@ -66,9 +66,9 @@ elif piket <=19 and piket >=0:
 age=18
 
 if age <=19 and age >= 18:
-    print("Lejohet te voton")
+    print("Lejohet te votoni")
 elif age <=17 and age >=16:
-    print("Nuk lejohet te voton")
+    print("Nuk lejohet te votoni")
 
 
 # Me shkurt
@@ -76,9 +76,9 @@ elif age <=17 and age >=16:
 age = 16
 
 if age >=18:
-    print("Lejohet te voton")
+    print("Lejohet te votoni")
 else:
-    print("Nuk lejohet te voton")
+    print("Nuk lejohet te votoni")
 
 
 
