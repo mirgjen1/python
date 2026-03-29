@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kosovo Football Federation - Official Site</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <style>
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #CE1126;
+    --secondary-color: #FFE600;
+    --dark-color: #1a1a1a;
+    --light-color: #f5f5f5;
+    --text-color: #333;
+    --border-color: #e0e0e0;
+    --transition: all 0.3s ease;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================== GLOBAL STYLES ==================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==================== NAVBAR STYLES ==================== */
+
+.navbar {
+    background: linear-gradient(135deg, var(--dark-color) 0%, #0d0d0d 100%);
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(10px);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
+}
+
+.logo i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 600;
+    font-size: 0.95rem;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--secondary-color);
+    text-shadow: 0 0 8px rgba(255, 230, 0, 0.4);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ==================== HERO SECTION ==================== */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(206, 17, 38, 0.75) 0%,
+        rgba(26, 26, 26, 0.85) 100%
+    );
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== MATCH CARD ==================== */
+
+.match-card {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 650px;
+    width: 100%;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: slideInDown 0.8s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.match-card:hover {
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.4);
+    transform: translateY(-10px);
+}
+
+.match-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #a00a20 100%);
+    color: white;
+    padding: 1.2rem;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.match-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2.5rem 1.5rem;
+    gap: 1.5rem;
+}
+
+.team {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    transition: var(--transition);
+}
+
+.team:hover {
+    transform: scale(1.05);
+}
+
+.flag {
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    animation: bounce 2s infinite;
+    border: 3px solid var(--secondary-color);
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.team-name {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-code {
+    font-size: 0.75rem;
+    color: #999;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.vs-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    min-width: 80px;
+}
+
+.vs-text {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.match-date {
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 600;
+}
+
+.match-footer {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+    justify-content: center;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ==================== BUTTONS ==================== */
+
+.btn {
+    padding: 0.85rem 1.8rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.4s ease;
+    z-index: 1;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #a00a20 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(206, 17, 38, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(206, 17, 38, 0.5);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #ffdc00 100%);
+    color: var(--dark-color);
+    box-shadow: 0 4px 15px rgba(255, 230, 0, 0.3);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255, 230, 0, 0.5);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    box-shadow: none;
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 8px 20px rgba(206, 17, 38, 0.3);
+}
+
+/* ==================== MATCH INFO ==================== */
+
+.match-info {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+}
+
+.info-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+}
+
+.info-item i {
+    font-size: 1.4rem;
+    color: var(--secondary-color);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* ==================== SECTION STYLES ==================== */
+
+section {
+    padding: 5rem 0;
+    position: relative;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 3.5rem;
+    color: var(--text-color);
+    position: relative;
+    padding-bottom: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: slideInUp 0.8s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 3px;
+    box-shadow: 0 4px 15px rgba(206, 17, 38, 0.3);
+}
+
+/* ==================== MATCHES SECTION ==================== */
+
+.matches {
+    background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+}
+
+.matches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    animation: fadeIn 1s ease-out 0.2s both;
+}
+
+.match-item {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+.match-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+.match-item-header {
+    background: linear-gradient(135deg, var(--primary-color), #a00a20);
+    color: white;
+    padding: 0.7rem;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.match-item-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem 1rem;
+    gap: 1rem;
+}
+
+.team-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    transition: var(--transition);
+}
+
+.team-mini:hover {
+    transform: scale(1.05);
+}
+
+.flag-mini {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 2px solid var(--secondary-color);
+}
+
+.vs-mini {
+    font-weight: 900;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.match-date-mini {
+    text-align: center;
+    padding: 1.2rem 0.8rem;
+    background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ==================== TEAMS SECTION ==================== */
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    animation: fadeIn 1s ease-out 0.2s both;
+}
+
+.team-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border-left: 5px solid var(--primary-color);
+}
+
+.team-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.team-card-header {
+    background: linear-gradient(135deg, var(--primary-color), #a00a20);
+    color: white;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.team-card-header i {
+    font-size: 3.5rem;
+    opacity: 0.9;
+}
+
+.team-card-flag {
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 3px solid var(--secondary-color);
+}
+
+.team-card-header h3 {
+    font-size: 1.7rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-card-body {
+    padding: 2rem;
+}
+
+.team-card-body p {
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+.team-card-body button {
+    width: 100%;
+}
+
+/* ==================== NEWS SECTION ==================== */
+
+.news {
+    background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    animation: fadeIn 1s ease-out 0.2s both;
+}
+
+.news-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.news-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.news-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.news-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(206, 17, 38, 0.3), transparent);
+    z-index: 2;
+    transition: var(--transition);
+}
+
+.news-card:hover .news-image::after {
+    background: linear-gradient(135deg, rgba(206, 17, 38, 0.1), transparent);
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.news-card:hover .news-image img {
+    transform: scale(1.15) rotate(2deg);
+}
+
+.news-content {
+    padding: 2rem;
+}
+
+.news-date {
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.news-card h3 {
+    margin: 0.8rem 0;
+    color: var(--text-color);
+    font-size: 1.3rem;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.news-card p {
+    color: #666;
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.read-more {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 800;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.read-more:hover {
+    gap: 0.8rem;
+    text-shadow: 0 0 8px rgba(206, 17, 38, 0.3);
+}
+
+/* ==================== ABOUT SECTION ==================== */
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-out 0.2s both;
+}
+
+.about-text {
+    margin-bottom: 3.5rem;
+    line-height: 2;
+    font-size: 1.1rem;
+}
+
+.about-text p {
+    margin-bottom: 1.8rem;
+    color: #555;
+    text-align: justify;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+}
+
+.stat {
+    background: linear-gradient(135deg, var(--primary-color), #a00a20);
+    color: white;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    border-radius: 18px;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+}
+
+.stat:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 60px rgba(206, 17, 38, 0.4);
+}
+
+.stat h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-value {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0.8rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================== CONTACT SECTION ==================== */
+
+.contact {
+    background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+    animation: fadeIn 1s ease-out 0.2s both;
+}
+
+.contact-card {
+    background: white;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    border-radius: 18px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+.contact-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+    font-weight: 800;
+}
+
+.contact-card p {
+    color: #666;
+    line-height: 1.8;
+}
+
+.contact-form {
+    max-width: 650px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1.2rem;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: white;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(206, 17, 38, 0.2);
+    transform: translateY(-2px);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #999;
+}
+
+/* ==================== FOOTER ==================== */
+
+.footer {
+    background: linear-gradient(135deg, var(--dark-color) 0%, #0d0d0d 100%);
+    color: white;
+    padding: 4rem 0 1.5rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.footer-section h4 {
+    margin-bottom: 1.2rem;
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    color: #ccc;
+    line-height: 1.8;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.footer-section a:hover {
+    color: var(--secondary-color);
+    padding-left: 8px;
+    text-shadow: 0 0 8px rgba(255, 230, 0, 0.3);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-color), #a00a20);
+    border-radius: 50%;
+    font-size: 1.3rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+}
+
+.social-icon:hover {
+    background: linear-gradient(135deg, var(--secondary-color), #ffdc00);
+    color: var(--dark-color);
+    transform: translateY(-8px) rotate(15deg);
+    box-shadow: 0 15px 35px rgba(255, 230, 0, 0.3);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #999;
+    font-size: 0.95rem;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+@media (max-width: 1024px) {
+    .nav-menu {
+        gap: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    section {
+        padding: 4rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, var(--dark-color) 0%, #0d0d0d 100%);
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        justify-content: flex-start;
+    }
+
+    .nav-menu.active {
+        max-height: 400px;
+    }
+
+    .nav-menu li {
+        padding: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .match-body {
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    .flag {
+        width: 70px;
+        height: 70px;
+    }
+
+    .team-name {
+        font-size: 1.5rem;
+    }
+
+    .vs-text {
+        font-size: 1.5rem;
+    }
+
+    .match-info {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .info-item {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .match-footer {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .matches-grid,
+    .teams-grid,
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        height: auto;
+        padding: 2rem 0;
+        min-height: 70vh;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    section {
+        padding: 2.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .logo {
+        gap: 8px;
+        font-size: 1.2rem;
+    }
+
+    .logo i {
+        font-size: 1.6rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+    }
+
+    .section-title::after {
+        width: 50px;
+    }
+
+    .match-card {
+        border-radius: 15px;
+    }
+
+    .match-header {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+
+    .match-body {
+        padding: 1.2rem 0.8rem;
+    }
+
+    .flag {
+        width: 60px;
+        height: 60px;
+    }
+
+    .team-name {
+        font-size: 1.2rem;
+    }
+
+    .vs-text {
+        font-size: 1.2rem;
+    }
+
+    .match-footer {
+        padding: 1rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.8rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat {
+        padding: 1.8rem 1rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+
+    .contact-form {
+        gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    .footer-section h4 {
+        font-size: 1rem;
+    }
+
+    .social-icons {
+        gap: 0.8rem;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* ==================== ANIMATIONS ==================== */
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==================== SCROLLBAR STYLING ==================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary-color), #a00a20);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #a00a20, var(--primary-color));
+}
+
+/* ==================== UTILITY CLASSES ==================== */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+    </style>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-futbol"></i>
+                <span>KFF</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#matches" class="nav-link">Matches</a></li>
+                <li><a href="#teams" class="nav-link">Teams</a></li>
+                <li><a href="#news" class="nav-link">News</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Match Header -->
+    <header id="home" class="hero">
+        <div class="hero-background">
+            <video autoplay muted loop class="hero-video">
+                <source src="https://videos.pexels.com/video-files/3945683/3945683-hd_1920_1080_30fps.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="match-card">
+                <div class="match-header">
+                    <span class="competition">World Cup 2026 Qualifier</span>
+                </div>
+                
+                <div class="match-body">
+                    <div class="team team-home">
+                        <img src="https://flagcdn.com/w320/xk.png" alt="Kosovo Flag" class="flag">
+                        <h2 class="team-name">Kosovo</h2>
+                        <p class="team-code">KOS</p>
+                    </div>
+                    
+                    <div class="vs-section">
+                        <span class="vs-text">VS</span>
+                        <p class="match-date">March 29, 2026</p>
+                    </div>
+                    
+                    <div class="team team-away">
+                        <img src="https://flagcdn.com/w320/tr.png" alt="Turkey Flag" class="flag">
+                        <h2 class="team-name">Turkey</h2>
+                        <p class="team-code">TUR</p>
+                    </div>
+                </div>
+                
+                <div class="match-footer">
+                    <button class="btn btn-primary">Get Tickets</button>
+                    <button class="btn btn-secondary">Watch Live</button>
+                </div>
+            </div>
+            
+            <div class="match-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Fadil Vokrri Stadium, Pristina</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>20:45 CET</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-tv"></i>
+                    <span>Live on RTK 1</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Upcoming Matches Section -->
+    <section id="matches" class="matches">
+        <div class="container">
+            <h2 class="section-title">Upcoming Fixtures</h2>
+            
+            <div class="matches-grid">
+                <div class="match-item">
+                    <div class="match-item-header">Friendly</div>
+                    <div class="match-item-body">
+                        <div class="team-mini">
+                            <img src="https://flagcdn.com/w320/xk.png" alt="Kosovo" class="flag-mini">
+                            <span>Kosovo</span>
+                        </div>
+                        <span class="vs-mini">vs</span>
+                        <div class="team-mini">
+                            <img src="https://flagcdn.com/w320/is.png" alt="Iceland" class="flag-mini">
+                            <span>Iceland</span>
+                        </div>
+                    </div>
+                    <p class="match-date-mini">April 5, 2026</p>
+                </div>
+
+                <div class="match-item">
+                    <div class="match-item-header">Qualifier</div>
+                    <div class="match-item-body">
+                        <div class="team-mini">
+                            <img src="https://flagcdn.com/w320/xk.png" alt="Kosovo" class="flag-mini">
+                            <span>Kosovo</span>
+                        </div>
+                        <span class="vs-mini">vs</span>
+                        <div class="team-mini">
+                            <img src="https://flagcdn.com/w320/se.png" alt="Sweden" class="flag-mini">
+                            <span>Sweden</span>
+                        </div>
+                    </div>
+                    <p class="match-date-mini">May 10, 2026</p>
+                </div>
+
+                <div class="match-item">
+                    <div class="match-item-header">Qualifier</div>
+                    <div class="match-item-body">
+                        <div class="team-mini">
+                            <img src="https://flagcdn.com/w320/xk.png" alt="Kosovo" class="flag-mini">
+                            <span>Kosovo</span>
+                        </div>
+                        <span class="vs-mini">vs</span>
+                        <div class="team-mini">
+                            <img src="https://flagcdn.com/w320/nl.png" alt="Netherlands" class="flag-mini">
+                            <span>Netherlands</span>
+                        </div>
+                    </div>
+                    <p class="match-date-mini">June 8, 2026</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- National Teams Section -->
+    <section id="teams" class="teams">
+        <div class="container">
+            <h2 class="section-title">National Teams</h2>
+            
+            <div class="teams-grid">
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <img src="https://flagcdn.com/w320/xk.png" alt="Senior Team" class="team-card-flag">
+                        <h3>Senior Men</h3>
+                    </div>
+                    <div class="team-card-body">
+                        <p><strong>Head Coach:</strong> Samir Ibrahimović</p>
+                        <p><strong>Players:</strong> 23</p>
+                        <p><strong>FIFA Ranking:</strong> #102</p>
+                        <button class="btn btn-outline">View Squad</button>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <i class="fas fa-users"></i>
+                        <h3>Women's Team</h3>
+                    </div>
+                    <div class="team-card-body">
+                        <p><strong>Head Coach:</strong> Shaban Salihu</p>
+                        <p><strong>Players:</strong> 20</p>
+                        <p><strong>FIFA Ranking:</strong> #156</p>
+                        <button class="btn btn-outline">View Squad</button>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <i class="fas fa-child"></i>
+                        <h3>Youth Teams</h3>
+                    </div>
+                    <div class="team-card-body">
+                        <p><strong>U-21:</strong> Coach - Agim Karagjozi</p>
+                        <p><strong>U-19:</strong> Coach - Arben Zeneli</p>
+                        <p><strong>Development Programs</strong></p>
+                        <button class="btn btn-outline">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section id="news" class="news">
+        <div class="container">
+            <h2 class="section-title">Latest News</h2>
+            
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Match Preview">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">March 28, 2026</span>
+                        <h3>Kosovo Squad Announced for Turkey Clash</h3>
+                        <p>Coach Samir Ibrahimović has revealed the 23-man squad for tomorrow's crucial World Cup qualifier against Turkey...</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.pexels.com/photos/3808742/pexels-photo-3808742.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Stadium">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">March 25, 2026</span>
+                        <h3>Fadil Vokrri Stadium Ready for Historic Match</h3>
+                        <p>The stadium has been prepared to international standards with capacity expanded to 13,500 for the Turkey qualifier...</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.pexels.com/photos/159725/pexels-photo-159725.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Players Training">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">March 20, 2026</span>
+                        <h3>Final Training Session Before Turkey Qualifier</h3>
+                        <p>The national team completes intensive preparation sessions ahead of their crucial World Cup 2026 qualifying match...</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">About Kosovo Football Federation</h2>
+                
+                <div class="about-text">
+                    <p>The Football Federation of Kosovo (KFF) is the official governing body for association football in Kosovo. Established to promote and develop football across the nation, the KFF oversees all national teams and football development programs.</p>
+                    
+                    <p>Kosovo's national football team competes in international competitions including World Cup qualifiers, UEFA Nations League, and friendlies. With recent improvements in performance and infrastructure, Kosovo is emerging as a competitive force in European football.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat">
+                        <h4>FIFA Ranking</h4>
+                        <p class="stat-value">#102</p>
+                    </div>
+                    <div class="stat">
+                        <h4>Players in Squad</h4>
+                        <p class="stat-value">23</p>
+                    </div>
+                    <div class="stat">
+                        <h4>International Matches</h4>
+                        <p class="stat-value">89</p>
+                    </div>
+                    <div class="stat">
+                        <h4>Founded</h4>
+                        <p class="stat-value">2008</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Address</h3>
+                    <p>Rr. Faik Konica, 10000 Pristina, Kosovo</p>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>+383 (0) 38 234 567</p>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>info@fk-kosova.com</p>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Kosovo Football Federation</h4>
+                    <p>Developing football excellence across Kosovo</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Teams</a></li>
+                        <li><a href="#">Fixtures</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Shop</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kosovo Football Federation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
