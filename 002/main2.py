@@ -63,16 +63,6 @@ elif piket <=19 and piket >=0:
 
 # Te krijohet nje script e cila e ben check nese useri eshte mbi 18. nese po lejohet te voton.
 
-age=18
-
-if age <=19 and age >= 18:
-    print("Lejohet te votoni")
-elif age <=17 and age >=16:
-    print("Nuk lejohet te votoni")
-
-
-# Me shkurt
-
 age = 16
 
 if age >=18:
