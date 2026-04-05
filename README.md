@@ -3,7 +3,7 @@
 A simple Python project.
 
 ## Requirements
-- Python 3.8+
+- Python 3.12 (64 bit)
 
 
 ## Contributing
